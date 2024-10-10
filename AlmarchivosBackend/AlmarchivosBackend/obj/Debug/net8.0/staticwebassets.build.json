@@ -1,0 +1,11 @@
+{
+  "Version": 1,
+  "Hash": "bjVSLdgApyFu1tmRjCJMqO9AaNU+HhSiyCtGNfGBHkk=",
+  "Source": "AlmarchivosBackend",
+  "BasePath": "_content/AlmarchivosBackend",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [],
+  "Assets": []
+}

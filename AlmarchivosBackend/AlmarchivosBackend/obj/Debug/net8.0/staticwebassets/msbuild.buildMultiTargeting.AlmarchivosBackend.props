@@ -1,0 +1,3 @@
+﻿<Project>
+  <Import Project="..\build\AlmarchivosBackend.props" />
+</Project>
