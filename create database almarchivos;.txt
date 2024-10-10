@@ -1,0 +1,69 @@
+create database almarchivos;
+
+use almarchivos;
+
+create table tipo_identificacion(
+id_ti int primary key identity(1,1),
+tipo_identificacion varchar(42)
+
+)
+
+
+
+create table Personas (
+id_Persona int primary key identity(1,1),
+Nombres varchar(42),
+Apellidos varchar(42),
+Numero_identificacion bigint,
+email varchar(42),
+id_tipo_id int,
+fecha_creacion varchar(42)
+
+
+CONSTRAINT FK_ti_per FOREIGN KEY (id_tipo_id) REFERENCES tipo_identificacion(id_ti),
+
+)
+create table Usuario (
+id_usuario int primary key identity(1,1),
+Usuario varchar(42),
+id_persona int,
+contraseña varchar(42),
+fecha_creacion varchar(42)
+
+CONSTRAINT FK_us_Per FOREIGN KEY (id_persona) references Personas(id_Persona)
+)
+
+
+
+-- Inserts para la tabla tipo_identificacion
+INSERT INTO tipo_identificacion (tipo_identificacion) VALUES ('Cédula de Ciudadanía');
+INSERT INTO tipo_identificacion (tipo_identificacion) VALUES ('Pasaporte');
+INSERT INTO tipo_identificacion (tipo_identificacion) VALUES ('Tarjeta de Identidad');
+INSERT INTO tipo_identificacion (tipo_identificacion) VALUES ('Cédula de Extranjería');
+
+-- Inserts para la tabla Personas
+INSERT INTO Personas (Nombres, Apellidos, Numero_identificacion, email, id_tipo_id, fecha_creacion)
+VALUES ('Carlos', 'Gómez', 3456789, 'carlos.gomez@mail.com', 1, '2023-10-01');
+
+INSERT INTO Personas (Nombres, Apellidos, Numero_identificacion, email, id_tipo_id, fecha_creacion)
+VALUES ('Lucía', 'Martínez', 9876543, 'lucia.martinez@mail.com', 2, '2023-10-02');
+
+INSERT INTO Personas (Nombres, Apellidos, Numero_identificacion, email, id_tipo_id, fecha_creacion)
+VALUES ('Pedro', 'Rodríguez', 1122334, 'pedro.rodriguez@mail.com', 3, '2023-10-03');
+
+-- Inserts para la tabla Usuario
+INSERT INTO Usuario (Usuario, contraseña, fecha_creacion, id_Persona)
+VALUES ('cgomez', 'password1', '2023-10-01', 1);
+
+INSERT INTO Usuario (Usuario, contraseña, fecha_creacion, id_Persona)
+VALUES ('lmartinez', 'password2', '2023-10-02', 2);
+
+INSERT INTO Usuario (Usuario, contraseña, fecha_creacion, id_Persona)
+VALUES ('prodriguez', 'password3', '2023-10-03', 3);
+
+
+select * from Usuario where id_Persona = 4
+select * from Personas
+
+update Usuario set id_persona=10 where Usuario= 'camilocon'
+
